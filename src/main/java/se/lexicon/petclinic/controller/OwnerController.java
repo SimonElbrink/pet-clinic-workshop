@@ -10,7 +10,7 @@ import se.lexicon.petclinic.service.OwnerService;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "api/owner")
+@RequestMapping(path = "api/owners")
 public class OwnerController {
 
     private OwnerService ownerService;
