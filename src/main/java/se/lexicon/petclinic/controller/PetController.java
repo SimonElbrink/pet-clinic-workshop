@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import se.lexicon.petclinic.entity.Pet;
-import se.lexicon.petclinic.service.OwnerService;
+
 import se.lexicon.petclinic.service.PetService;
 
 @RestController
@@ -16,12 +16,10 @@ public class PetController {
     public static final String PET_NAME = "pet_name";
     public static final String ALL = "all";
     PetService petService;
-    OwnerService ownerService;
 
     @Autowired
-    public PetController(PetService petService, OwnerService ownerService) {
+    public PetController(PetService petService) {
         this.petService = petService;
-        this.ownerService = ownerService;
     }
 
 
@@ -41,7 +39,10 @@ public class PetController {
 
     @PostMapping
     public ResponseEntity<Pet> create(@RequestBody Pet pet){
-        return ResponseEntity.status(HttpStatus.CREATED).body(petService.save(pet));
+
+        Pet pet1 = petService.save(pet);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(pet1);
 
     }
 
