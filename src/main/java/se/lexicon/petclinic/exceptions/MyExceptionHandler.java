@@ -33,13 +33,13 @@ public class MyExceptionHandler extends ResponseEntityExceptionHandler {
 
         MyExceptionResponse response = new MyExceptionResponse(
                 LocalDateTime.now(),
-                HttpStatus.BAD_REQUEST.value(),
-                HttpStatus.BAD_REQUEST.name(),
+                HttpStatus.NOT_FOUND.value(),
+                HttpStatus.NOT_FOUND.name(),
                 ex.getMessage(),
                 request.getDescription(false)
         );
 
-        return ResponseEntity.badRequest().body(response);
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
 
     }
 

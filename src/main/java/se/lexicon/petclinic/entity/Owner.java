@@ -17,10 +17,10 @@ public class Owner {
             name = "UUID",
             strategy = "org.hibernate.id.UUIDGenerator"
     )
-    private String OwnerId;
+    private String ownerId;
 
     private String firstName;
-    private String LastName;
+    private String lastName;
     private String address;
 
     @Column(unique = true)
@@ -29,16 +29,16 @@ public class Owner {
     public Owner() {
     }
 
-    public Owner(String OwnerId, String firstName, String lastName, String address, String telephone) {
-        this.OwnerId = OwnerId;
+    public Owner(String ownerId, String firstName, String lastName, String address, String telephone) {
+        this.ownerId = ownerId;
         this.firstName = firstName;
-        LastName = lastName;
+        this.lastName = lastName;
         this.address = address;
         this.telephone = telephone;
     }
 
     public String getOwnerId() {
-        return OwnerId;
+        return ownerId;
     }
 
     public String getFirstName() {
@@ -50,11 +50,11 @@ public class Owner {
     }
 
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 
     public void setLastName(String lastName) {
-        LastName = lastName;
+        this.lastName = lastName;
     }
 
     public String getAddress() {
@@ -78,24 +78,24 @@ public class Owner {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Owner owner = (Owner) o;
-        return Objects.equals(OwnerId, owner.OwnerId) &&
+        return Objects.equals(ownerId, owner.ownerId) &&
                 Objects.equals(firstName, owner.firstName) &&
-                Objects.equals(LastName, owner.LastName) &&
+                Objects.equals(lastName, owner.lastName) &&
                 Objects.equals(address, owner.address) &&
                 Objects.equals(telephone, owner.telephone);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(OwnerId, firstName, LastName, address, telephone);
+        return Objects.hash(ownerId, firstName, lastName, address, telephone);
     }
 
     @Override
     public String toString() {
         return "Owner{" +
-                "OwnerId='" + OwnerId + '\'' +
+                "ownerId='" + ownerId + '\'' +
                 ", firstName='" + firstName + '\'' +
-                ", LastName='" + LastName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", address='" + address + '\'' +
                 ", telephone='" + telephone + '\'' +
                 '}';
